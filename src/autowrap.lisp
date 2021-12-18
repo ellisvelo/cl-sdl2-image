@@ -9,8 +9,7 @@
                     "/usr/include/arm-linux-gnueabihf"
                     "/usr/local/include/SDL2")
   :include-sources ("SDL_image.h")
-  :sysincludes `,(cl:append
-                   (cl:list (uiop:getenv "EXTRA_INCLUDES")))
+  :sysincludes `,(uiop:split-string (uiop:getenv "EXTRA_INCLUDES") :separator " ")
   :exclude-constants ("^__")
   :symbol-exceptions (("SDL_RWops" . "SDL-RWOPS"))
   :no-accessors cl:t
